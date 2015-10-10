@@ -1,0 +1,29 @@
+{
+  "name" : "activecollab/datevalue",
+  "type": "library",
+  "description": "Simple extension to Carbon that makes distinction between date and date-time objects",
+  "license" : "MIT",
+  "prefer-stable": true,
+  "keywords": [ "activecollab", "date", "datetime" ],
+  "homepage": "https://labs.activecollab.com",
+  "authors": [
+    {
+      "name": "Ilija Studen",
+      "email": "ilija.studen@activecollab.com"
+    }
+  ],
+  "require" : {
+    "php": ">=5.6.0",
+    "nesbot/carbon" : "~1"
+  },
+  "require-dev" : {
+    "phpunit/phpunit": "~4.8"
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "ActiveCollab\\DateValue\\": "src",
+      "ActiveCollab\\DateValue\\Test\\": "test/src"
+    }
+  }
+}
