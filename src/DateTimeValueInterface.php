@@ -5,6 +5,6 @@ namespace ActiveCollab\DateValue;
 /**
  * @package ActiveCollab\DateValue
  */
-interface DateTimeValueInterface
+interface DateTimeValueInterface extends \DateTimeInterface
 {
 }
