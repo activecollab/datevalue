@@ -9,4 +9,11 @@ use Carbon\Carbon;
  */
 class DateTimeValue extends Carbon implements DateTimeValueInterface
 {
+    /**
+     * @return int
+     */
+    public function jsonSerialize()
+    {
+        return $this->getTimestamp();
+    }
 }
