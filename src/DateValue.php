@@ -22,6 +22,8 @@ class DateValue extends Carbon implements DateValueInterface
         }
 
         parent::__construct($time, $tz);
+
+        $this->startOfDay();
     }
 
     /**
