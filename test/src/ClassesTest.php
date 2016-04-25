@@ -12,6 +12,7 @@ use ActiveCollab\DateValue\DateTimeValue;
 use ActiveCollab\DateValue\DateTimeValueInterface;
 use ActiveCollab\DateValue\DateValue;
 use ActiveCollab\DateValue\DateValueInterface;
+use ActiveCollab\DateValue\Test\TestCase\TestCase;
 use ReflectionClass;
 
 /**

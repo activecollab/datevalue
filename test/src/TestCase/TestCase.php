@@ -6,8 +6,10 @@
  * (c) A51 doo <info@activecollab.com>. All rights reserved.
  */
 
-namespace ActiveCollab\DateValue\Test;
+namespace ActiveCollab\DateValue\Test\TestCase;
 
-abstract class TestCase extends \PHPUnit_Framework_TestCase
+use PHPUnit_Framework_TestCase;
+
+abstract class TestCase extends PHPUnit_Framework_TestCase
 {
 }

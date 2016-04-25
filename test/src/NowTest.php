@@ -10,6 +10,7 @@ namespace ActiveCollab\DateValue\Test;
 
 use ActiveCollab\DateValue\DateTimeValue;
 use ActiveCollab\DateValue\DateValue;
+use ActiveCollab\DateValue\Test\TestCase\TestCase;
 
 /**
  * @package ActiveCollab\DateValue\Test
