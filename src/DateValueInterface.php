@@ -8,9 +8,12 @@
 
 namespace ActiveCollab\DateValue;
 
+use DateTimeInterface;
+use JsonSerializable;
+
 /**
  * @package ActiveCollab\DateValue
  */
-interface DateValueInterface extends \DateTimeInterface, \JsonSerializable
+interface DateValueInterface extends DateTimeInterface, JsonSerializable
 {
 }
