@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of the Active Collab DateValue project.
+ *
+ * (c) A51 doo <info@activecollab.com>. All rights reserved.
+ */
+
 namespace ActiveCollab\DateValue;
 
 use Carbon\Carbon;
@@ -12,7 +18,7 @@ class DateValue extends Carbon implements DateValueInterface
     /**
      * Create a new DateValue instance.
      *
-     * @param string              $time
+     * @param string               $time
      * @param \DateTimeZone|string $tz
      */
     public function __construct($time = null, $tz = null)

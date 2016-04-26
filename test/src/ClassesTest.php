@@ -1,11 +1,18 @@
 <?php
 
+/*
+ * This file is part of the Active Collab DateValue project.
+ *
+ * (c) A51 doo <info@activecollab.com>. All rights reserved.
+ */
+
 namespace ActiveCollab\DateValue\Test;
 
-use ActiveCollab\DateValue\DateValueInterface;
-use ActiveCollab\DateValue\DateValue;
-use ActiveCollab\DateValue\DateTimeValueInterface;
 use ActiveCollab\DateValue\DateTimeValue;
+use ActiveCollab\DateValue\DateTimeValueInterface;
+use ActiveCollab\DateValue\DateValue;
+use ActiveCollab\DateValue\DateValueInterface;
+use ActiveCollab\DateValue\Test\TestCase\TestCase;
 use ReflectionClass;
 
 /**
@@ -14,7 +21,7 @@ use ReflectionClass;
 class ClassesTest extends TestCase
 {
     /**
-     * Test if date value class exists
+     * Test if date value class exists.
      */
     public function testDateValueClass()
     {
@@ -23,7 +30,7 @@ class ClassesTest extends TestCase
     }
 
     /**
-     * Test if date time value class exists
+     * Test if date time value class exists.
      */
     public function testDateTimeValueClass()
     {

@@ -1,9 +1,16 @@
 <?php
 
+/*
+ * This file is part of the Active Collab DateValue project.
+ *
+ * (c) A51 doo <info@activecollab.com>. All rights reserved.
+ */
+
 namespace ActiveCollab\DateValue\Test;
 
-use ActiveCollab\DateValue\DateValue;
 use ActiveCollab\DateValue\DateTimeValue;
+use ActiveCollab\DateValue\DateValue;
+use ActiveCollab\DateValue\Test\TestCase\TestCase;
 
 /**
  * @package ActiveCollab\DateValue\Test
@@ -16,7 +23,7 @@ class JsonSerializeTest extends TestCase
     private $reference;
 
     /**
-     * Set up test environment
+     * Set up test environment.
      */
     public function setUp()
     {
@@ -28,7 +35,7 @@ class JsonSerializeTest extends TestCase
     }
 
     /**
-     * Tear down test environment
+     * Tear down test environment.
      */
     public function tearDown()
     {
@@ -38,7 +45,7 @@ class JsonSerializeTest extends TestCase
     }
 
     /**
-     * Test date serialization
+     * Test date serialization.
      */
     public function testSerializeDate()
     {
@@ -54,7 +61,7 @@ class JsonSerializeTest extends TestCase
     }
 
     /**
-     * Test date time serialization
+     * Test date time serialization.
      */
     public function testSerializeDateTime()
     {
