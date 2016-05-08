@@ -1,12 +1,16 @@
 <?php
 
+/*
+ * This file is part of the Active Collab DateValue project.
+ *
+ * (c) A51 doo <info@activecollab.com>. All rights reserved.
+ */
+
 namespace ActiveCollab\DateValue\Test;
 
-use ActiveCollab\DateValue\DateValueInterface;
-use ActiveCollab\DateValue\DateValue;
-use ActiveCollab\DateValue\DateTimeValueInterface;
 use ActiveCollab\DateValue\DateTimeValue;
-use ReflectionClass;
+use ActiveCollab\DateValue\DateValue;
+use ActiveCollab\DateValue\Test\TestCase\TestCase;
 
 /**
  * @package ActiveCollab\DateValue\Test
@@ -14,7 +18,7 @@ use ReflectionClass;
 class NowTest extends TestCase
 {
     /**
-     * Test if now uses current timestamp
+     * Test if now uses current timestamp.
      */
     public function testRealNow()
     {
@@ -22,7 +26,7 @@ class NowTest extends TestCase
     }
 
     /**
-     * Test if now can be overriden, for test purposes
+     * Test if now can be overriden, for test purposes.
      */
     public function testTestNow()
     {
