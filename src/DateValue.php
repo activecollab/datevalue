@@ -9,6 +9,7 @@
 namespace ActiveCollab\DateValue;
 
 use Carbon\Carbon;
+use DateTimeInterface;
 
 /**
  * @package ActiveCollab\DateValue
@@ -16,18 +17,24 @@ use Carbon\Carbon;
 class DateValue extends Carbon implements DateValueInterface
 {
     /**
-     * Create a new DateValue instance.
+     * Create a new DateTimeValue instance.
      *
-     * @param string               $time
-     * @param \DateTimeZone|string $tz
+     * @param DateTimeInterface|string|null $time
+     * @param \DateTimeZone|string          $tz
      */
     public function __construct($time = null, $tz = null)
     {
+        if ($time instanceof DateTimeInterface) {
+            $create_from = $time->format('Y-m-d');
+        } else {
+            $create_from = $time;
+        }
+
         if (empty($tz)) {
             $tz = 'UTC';
         }
 
-        parent::__construct($time, $tz);
+        parent::__construct($create_from, $tz);
 
         $this->startOfDay();
     }
