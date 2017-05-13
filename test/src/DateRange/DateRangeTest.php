@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace ActiveCollab\DateValue\Test;
+namespace ActiveCollab\DateValue\Test\DateRange;
 
 use ActiveCollab\DateValue\DateRange;
 use ActiveCollab\DateValue\DateValue;
