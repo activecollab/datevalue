@@ -10,9 +10,9 @@ declare(strict_types=1);
 
 namespace ActiveCollab\DateValue;
 
-use DateTimeInterface;
-use JsonSerializable;
-
-interface DateTimeValueInterface extends DateTimeInterface, JsonSerializable
+interface DateRangeInterface
 {
+    public function getStartDate(): DateValueInterface;
+
+    public function getEndDate(): DateValueInterface;
 }

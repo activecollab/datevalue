@@ -6,25 +6,21 @@
  * (c) A51 doo <info@activecollab.com>. All rights reserved.
  */
 
+declare(strict_types=1);
+
 namespace ActiveCollab\DateValue\Test;
 
 use ActiveCollab\DateValue\DateTimeValue;
 use ActiveCollab\DateValue\DateValue;
 use ActiveCollab\DateValue\Test\TestCase\TestCase;
 
-/**
- * @package ActiveCollab\DateValue\Test
- */
-class JsonSerializeTest extends TestCase
+final class JsonSerializeTest extends TestCase
 {
     /**
      * @var DateTimeValue
      */
     private $reference;
 
-    /**
-     * Set up test environment.
-     */
     public function setUp()
     {
         parent::setUp();
@@ -44,9 +40,6 @@ class JsonSerializeTest extends TestCase
         parent::tearDown();
     }
 
-    /**
-     * Test date serialization.
-     */
     public function testSerializeDate()
     {
         $decoded = json_decode(json_encode(new DateValue()), true);
@@ -60,9 +53,6 @@ class JsonSerializeTest extends TestCase
         $this->assertEquals($start_of_reference_day->getTimestamp(), json_decode(json_encode(new DateValue()), true));
     }
 
-    /**
-     * Test date time serialization.
-     */
     public function testSerializeDateTime()
     {
         $decoded = json_decode(json_encode(new DateTimeValue()), true);
