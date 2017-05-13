@@ -10,7 +10,10 @@ declare(strict_types=1);
 
 namespace ActiveCollab\DateValue;
 
-interface DateRangeInterface
+use IteratorAggregate;
+use JsonSerializable;
+
+interface DateRangeInterface extends IteratorAggregate, JsonSerializable
 {
     public function getStartDate(): DateValueInterface;
 

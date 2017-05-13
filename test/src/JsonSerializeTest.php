@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace ActiveCollab\DateValue\Test;
 
+use ActiveCollab\DateValue\DateRange;
 use ActiveCollab\DateValue\DateTimeValue;
 use ActiveCollab\DateValue\DateValue;
 use ActiveCollab\DateValue\Test\TestCase\TestCase;
@@ -30,9 +31,6 @@ final class JsonSerializeTest extends TestCase
         DateTimeValue::setTestNow($this->reference);
     }
 
-    /**
-     * Tear down test environment.
-     */
     public function tearDown()
     {
         DateTimeValue::setTestNow(null);
@@ -61,5 +59,23 @@ final class JsonSerializeTest extends TestCase
         $this->assertNotEmpty($decoded);
 
         $this->assertEquals($this->reference->getTimestamp(), json_decode(json_encode(new DateTimeValue()), true));
+    }
+
+    public function testSerializeDateRange()
+    {
+        $first_day = new DateValue('2017-01-01');
+        $last_day = new DateValue('2017-12-31');
+
+        $date_range = new DateRange($first_day, $last_day);
+
+        $value = json_decode(json_encode($date_range), true);
+
+        $this->assertInternalType('array', $value);
+        $this->assertCount(2, $value);
+
+        $this->assertArrayHasKey('start_date', $value);
+        $this->assertSame($first_day->getTimestamp(), $value['start_date']);
+        $this->assertArrayHasKey('end_date', $value);
+        $this->assertSame($last_day->getTimestamp(), $value['end_date']);
     }
 }
