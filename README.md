@@ -41,11 +41,34 @@ $date_time = (new DateTimeValue('last day of April 2017'))->endOfDay();
 print $date_time->format('Y-m-d H:i:s') . "\n";
 ```
 
+To specify a date range, use DateRange class. Ranges can be easily iterated:
+
+```php
+<?php
+
+namespace MyApp;
+
+use ActiveCollab\DateValue\DateRange;
+use ActiveCollab\DateValue\DateValue;
+use ActiveCollab\DateValue\DateValueInterface;
+
+$first_day = new DateValue('first day of April 2017');
+$last_day = new DateValue('last day of April 2017');
+
+$date_range = new DateRange($first_day, $last_day);
+
+/** @var DateValueInterface $day */
+foreach ($date_range as $day) {
+    $this->assertInstanceOf(DateValueInterface::class, $day);
+    print $day->format('Y-m-d') . "\n"; // Prints all days from 2017-04-01 to 2017-04-30.
+}
+```
+
 ## Version 2
 
 Goals of second iteration of this package are:
 
-* [ ] Make the package require PHP 7.1, and use strict types in all files,
-* [ ] Make the library 100% covered with tests,
+* [x] Make the package require PHP 7.1, and use strict types in all files,
+* [x] Make the library 100% covered with tests,
 * [ ] Add support for custom date ranges, as well as year, quarter, month, and day ranges,
-* [ ] Add support for easy looping in date ranges.
+* [x] Add support for easy looping in date ranges.
