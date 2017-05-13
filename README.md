@@ -64,11 +64,29 @@ foreach ($date_range as $day) {
 }
 ```
 
+There are three helper date range classes:
+
+```php
+<?php
+
+namespace MyApp;
+
+use ActiveCollab\DateValue\DateRange\MonthDateRange;
+use ActiveCollab\DateValue\DateRange\QuarterDateRange;
+use ActiveCollab\DateValue\DateRange\YearDateRange;
+
+new MonthDateRange(2017, 4); // April 2017.
+new QuarterDateRange(2017, 2); // Q2 2017.
+new YearDateRange(2017); // The whole 2017.
+```
+
+These ranges automatically calculate start and end dates, and they can be iterated, just like custom date ranges.
+
 ## Version 2
 
 Goals of second iteration of this package are:
 
 * [x] Make the package require PHP 7.1, and use strict types in all files,
 * [x] Make the library 100% covered with tests,
-* [ ] Add support for custom date ranges, as well as year, quarter, month, and day ranges,
+* [x] Add support for custom date ranges, as well as year, quarter, month, and day ranges,
 * [x] Add support for easy looping in date ranges.
