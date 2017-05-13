@@ -13,7 +13,7 @@ namespace ActiveCollab\DateValue\Test\DateRange;
 use ActiveCollab\DateValue\DateRange\MonthDateRange;
 use ActiveCollab\DateValue\Test\TestCase\TestCase;
 
-final class MonthRangeTest extends TestCase
+final class MonthDateRangeTest extends TestCase
 {
     /**
      * @dataProvider provideInvalidMonths

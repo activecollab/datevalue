@@ -12,10 +12,10 @@ namespace ActiveCollab\DateValue\DateRange;
 
 use ActiveCollab\DateValue\DateRange;
 
-class MonthDateRange extends DateRange
+class QuarterDateRange extends DateRange
 {
     public function __construct(int $year, int $quarter)
     {
-        parent::__construct(...(new DateRangeResolver())->getMonthDateRange($year, $quarter));
+        parent::__construct(...(new DateRangeResolver())->getQuarterDateRange($year, $quarter));
     }
 }
