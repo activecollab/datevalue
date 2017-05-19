@@ -14,8 +14,8 @@ use ActiveCollab\DateValue\DateRange;
 
 class MonthDateRange extends DateRange
 {
-    public function __construct(int $year, int $quarter)
+    public function __construct(int $year, int $month)
     {
-        parent::__construct(...(new DateRangeResolver())->getMonthDateRange($year, $quarter));
+        parent::__construct(...(new DateRangeResolver())->getMonthDateRange($year, $month));
     }
 }
