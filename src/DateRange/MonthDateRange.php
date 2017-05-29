@@ -12,10 +12,26 @@ namespace ActiveCollab\DateValue\DateRange;
 
 use ActiveCollab\DateValue\DateRange;
 
-class MonthDateRange extends DateRange
+class MonthDateRange extends DateRange implements MonthDateRangeInterface
 {
+    private $year;
+    private $month;
+
     public function __construct(int $year, int $month)
     {
         parent::__construct(...(new DateRangeResolver())->getMonthDateRange($year, $month));
+
+        $this->year = $year;
+        $this->month = $month;
+    }
+
+    public function getYear(): int
+    {
+        return $this->year;
+    }
+
+    public function getMonth(): int
+    {
+        return $this->month;
     }
 }

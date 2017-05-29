@@ -12,10 +12,26 @@ namespace ActiveCollab\DateValue\DateRange;
 
 use ActiveCollab\DateValue\DateRange;
 
-class QuarterDateRange extends DateRange
+class QuarterDateRange extends DateRange implements QuarterDateRangeInterface
 {
+    private $year;
+    private $quarter;
+
     public function __construct(int $year, int $quarter)
     {
         parent::__construct(...(new DateRangeResolver())->getQuarterDateRange($year, $quarter));
+
+        $this->year = $year;
+        $this->quarter = $quarter;
+    }
+
+    public function getYear(): int
+    {
+        return $this->year;
+    }
+
+    public function getQuarter(): int
+    {
+        return $this->quarter;
     }
 }
