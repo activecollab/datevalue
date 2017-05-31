@@ -57,4 +57,21 @@ final class MonthDateRangeTest extends TestCase
             [2016, 2, '2016-02-01', '2016-02-29'], // Leap year
         ];
     }
+
+    public function testSerializeDateRange()
+    {
+        $date_range = new MonthDateRange(2017, 12);
+
+        $value = json_decode(json_encode($date_range), true);
+
+        $this->assertInternalType('array', $value);
+        $this->assertCount(5, $value);
+
+        $this->assertArrayHasKey('type', $value);
+        $this->assertSame(MonthDateRange::class, $value['type']);
+        $this->assertArrayHasKey('year', $value);
+        $this->assertSame(2017, $value['year']);
+        $this->assertArrayHasKey('month', $value);
+        $this->assertSame(12, $value['month']);
+    }
 }

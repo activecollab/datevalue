@@ -34,4 +34,15 @@ class QuarterDateRange extends DateRange implements QuarterDateRangeInterface
     {
         return $this->quarter;
     }
+
+    public function jsonSerialize()
+    {
+        return array_merge(
+            parent::jsonSerialize(),
+            [
+                'year' => $this->year,
+                'quarter' => $this->quarter,
+            ]
+        );
+    }
 }

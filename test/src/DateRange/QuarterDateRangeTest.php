@@ -59,4 +59,21 @@ final class QuarterDateRangeTest extends TestCase
             [2017, 4, '2017-10-01', '2017-12-31'],
         ];
     }
+
+    public function testSerializeDateRange()
+    {
+        $date_range = new QuarterDateRange(2017, 4);
+
+        $value = json_decode(json_encode($date_range), true);
+
+        $this->assertInternalType('array', $value);
+        $this->assertCount(5, $value);
+
+        $this->assertArrayHasKey('type', $value);
+        $this->assertSame(QuarterDateRange::class, $value['type']);
+        $this->assertArrayHasKey('year', $value);
+        $this->assertSame(2017, $value['year']);
+        $this->assertArrayHasKey('quarter', $value);
+        $this->assertSame(4, $value['quarter']);
+    }
 }

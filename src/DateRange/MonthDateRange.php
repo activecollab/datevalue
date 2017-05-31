@@ -34,4 +34,15 @@ class MonthDateRange extends DateRange implements MonthDateRangeInterface
     {
         return $this->month;
     }
+
+    public function jsonSerialize()
+    {
+        return array_merge(
+            parent::jsonSerialize(),
+            [
+                'year' => $this->year,
+                'month' => $this->month,
+            ]
+        );
+    }
 }

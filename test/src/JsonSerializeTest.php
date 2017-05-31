@@ -71,8 +71,10 @@ final class JsonSerializeTest extends TestCase
         $value = json_decode(json_encode($date_range), true);
 
         $this->assertInternalType('array', $value);
-        $this->assertCount(2, $value);
+        $this->assertCount(3, $value);
 
+        $this->assertArrayHasKey('type', $value);
+        $this->assertSame(DateRange::class, $value['type']);
         $this->assertArrayHasKey('start_date', $value);
         $this->assertSame($first_day->getTimestamp(), $value['start_date']);
         $this->assertArrayHasKey('end_date', $value);

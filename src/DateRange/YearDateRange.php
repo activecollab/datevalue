@@ -27,4 +27,14 @@ class YearDateRange extends DateRange implements YearDateRangeInterface
     {
         return $this->year;
     }
+
+    public function jsonSerialize()
+    {
+        return array_merge(
+            parent::jsonSerialize(),
+            [
+                'year' => $this->year,
+            ]
+        );
+    }
 }

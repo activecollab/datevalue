@@ -46,6 +46,7 @@ trait DateRangeTrait
     public function jsonSerialize()
     {
         return [
+            'type' => get_class($this),
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
         ];
