@@ -16,6 +16,7 @@ use JsonSerializable;
 interface DateRangeInterface extends IteratorAggregate, JsonSerializable
 {
     public function getStartDate(): DateValueInterface;
-
     public function getEndDate(): DateValueInterface;
+    public function getStartDateTime(): DateTimeValueInterface;
+    public function getEndDateTime(): DateTimeValueInterface;
 }

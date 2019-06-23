@@ -26,6 +26,14 @@ final class DateRangeTest extends TestCase
         new DateRange(new DateValue('2017-01-01'), new DateValue('2016-12-31'));
     }
 
+    public function testStartAndEndDateTime()
+    {
+        $range = new DateRange(new DateValue('2017-01-01'), new DateValue('2017-12-31'));
+
+        $this->assertSame('2017-01-01 00:00:00', $range->getStartDateTime()->format('Y-m-d H:i:s'));
+        $this->assertSame('2017-12-31 23:59:59', $range->getEndDateTime()->format('Y-m-d H:i:s'));
+    }
+
     public function testSingleDayIterator()
     {
         $april_fools = new DateValue('first day of April 2017');
