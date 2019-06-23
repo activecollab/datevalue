@@ -6,25 +6,22 @@
  * (c) A51 doo <info@activecollab.com>. All rights reserved.
  */
 
+declare(strict_types=1);
+
 namespace ActiveCollab\DateValue\Test;
 
+use ActiveCollab\DateValue\DateRange;
 use ActiveCollab\DateValue\DateTimeValue;
 use ActiveCollab\DateValue\DateValue;
 use ActiveCollab\DateValue\Test\TestCase\TestCase;
 
-/**
- * @package ActiveCollab\DateValue\Test
- */
-class JsonSerializeTest extends TestCase
+final class JsonSerializeTest extends TestCase
 {
     /**
      * @var DateTimeValue
      */
     private $reference;
 
-    /**
-     * Set up test environment.
-     */
     public function setUp()
     {
         parent::setUp();
@@ -34,9 +31,6 @@ class JsonSerializeTest extends TestCase
         DateTimeValue::setTestNow($this->reference);
     }
 
-    /**
-     * Tear down test environment.
-     */
     public function tearDown()
     {
         DateTimeValue::setTestNow(null);
@@ -44,9 +38,6 @@ class JsonSerializeTest extends TestCase
         parent::tearDown();
     }
 
-    /**
-     * Test date serialization.
-     */
     public function testSerializeDate()
     {
         $decoded = json_decode(json_encode(new DateValue()), true);
@@ -60,9 +51,6 @@ class JsonSerializeTest extends TestCase
         $this->assertEquals($start_of_reference_day->getTimestamp(), json_decode(json_encode(new DateValue()), true));
     }
 
-    /**
-     * Test date time serialization.
-     */
     public function testSerializeDateTime()
     {
         $decoded = json_decode(json_encode(new DateTimeValue()), true);
@@ -71,5 +59,25 @@ class JsonSerializeTest extends TestCase
         $this->assertNotEmpty($decoded);
 
         $this->assertEquals($this->reference->getTimestamp(), json_decode(json_encode(new DateTimeValue()), true));
+    }
+
+    public function testSerializeDateRange()
+    {
+        $first_day = new DateValue('2017-01-01');
+        $last_day = new DateValue('2017-12-31');
+
+        $date_range = new DateRange($first_day, $last_day);
+
+        $value = json_decode(json_encode($date_range), true);
+
+        $this->assertInternalType('array', $value);
+        $this->assertCount(3, $value);
+
+        $this->assertArrayHasKey('type', $value);
+        $this->assertSame(DateRange::class, $value['type']);
+        $this->assertArrayHasKey('start_date', $value);
+        $this->assertSame($first_day->getTimestamp(), $value['start_date']);
+        $this->assertArrayHasKey('end_date', $value);
+        $this->assertSame($last_day->getTimestamp(), $value['end_date']);
     }
 }

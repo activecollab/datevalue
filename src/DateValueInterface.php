@@ -6,14 +6,12 @@
  * (c) A51 doo <info@activecollab.com>. All rights reserved.
  */
 
+declare(strict_types=1);
+
 namespace ActiveCollab\DateValue;
 
-use DateTimeInterface;
-use JsonSerializable;
+use Carbon\CarbonInterface;
 
-/**
- * @package ActiveCollab\DateValue
- */
-interface DateValueInterface extends DateTimeInterface, JsonSerializable
+interface DateValueInterface extends CarbonInterface
 {
 }

@@ -6,14 +6,13 @@
  * (c) A51 doo <info@activecollab.com>. All rights reserved.
  */
 
+declare(strict_types=1);
+
 namespace ActiveCollab\DateValue;
 
 use Carbon\Carbon;
 use DateTimeInterface;
 
-/**
- * @package ActiveCollab\DateValue
- */
 class DateTimeValue extends Carbon implements DateTimeValueInterface
 {
     /**
@@ -37,9 +36,6 @@ class DateTimeValue extends Carbon implements DateTimeValueInterface
         parent::__construct($create_from, $tz);
     }
 
-    /**
-     * @return int
-     */
     public function jsonSerialize()
     {
         return $this->getTimestamp();

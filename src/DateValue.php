@@ -6,14 +6,13 @@
  * (c) A51 doo <info@activecollab.com>. All rights reserved.
  */
 
+declare(strict_types=1);
+
 namespace ActiveCollab\DateValue;
 
 use Carbon\Carbon;
 use DateTimeInterface;
 
-/**
- * @package ActiveCollab\DateValue
- */
 class DateValue extends Carbon implements DateValueInterface
 {
     /**
@@ -39,9 +38,6 @@ class DateValue extends Carbon implements DateValueInterface
         $this->startOfDay();
     }
 
-    /**
-     * @return int
-     */
     public function jsonSerialize()
     {
         return $this->getTimestamp();
