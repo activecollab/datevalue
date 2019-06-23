@@ -17,6 +17,7 @@
     ],
     "require": {
         "php": ">=7.1",
+        "ext-json": "*",
         "nesbot/carbon": "~1"
     },
     "require-dev": {
