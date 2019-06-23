@@ -10,9 +10,8 @@ declare(strict_types=1);
 
 namespace ActiveCollab\DateValue;
 
-use DateTimeInterface;
-use JsonSerializable;
+use Carbon\CarbonInterface;
 
-interface DateValueInterface extends DateTimeInterface, JsonSerializable
+interface DateValueInterface extends CarbonInterface
 {
 }
