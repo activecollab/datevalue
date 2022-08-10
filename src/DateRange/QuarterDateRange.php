@@ -14,8 +14,8 @@ use ActiveCollab\DateValue\DateRange;
 
 class QuarterDateRange extends DateRange implements QuarterDateRangeInterface
 {
-    private $year;
-    private $quarter;
+    private int $year;
+    private int $quarter;
 
     public function __construct(int $year, int $quarter)
     {
@@ -35,7 +35,7 @@ class QuarterDateRange extends DateRange implements QuarterDateRangeInterface
         return $this->quarter;
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return array_merge(
             parent::jsonSerialize(),

@@ -14,8 +14,8 @@ use ActiveCollab\DateValue\DateRange;
 
 class MonthDateRange extends DateRange implements MonthDateRangeInterface
 {
-    private $year;
-    private $month;
+    private int $year;
+    private int $month;
 
     public function __construct(int $year, int $month)
     {
@@ -35,7 +35,7 @@ class MonthDateRange extends DateRange implements MonthDateRangeInterface
         return $this->month;
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return array_merge(
             parent::jsonSerialize(),

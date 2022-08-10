@@ -22,7 +22,7 @@ final class JsonSerializeTest extends TestCase
      */
     private $reference;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -31,7 +31,7 @@ final class JsonSerializeTest extends TestCase
         DateTimeValue::setTestNow($this->reference);
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         DateTimeValue::setTestNow(null);
 
@@ -70,7 +70,7 @@ final class JsonSerializeTest extends TestCase
 
         $value = json_decode(json_encode($date_range), true);
 
-        $this->assertInternalType('array', $value);
+        $this->assertIsArray($value);
         $this->assertCount(3, $value);
 
         $this->assertArrayHasKey('type', $value);

@@ -31,19 +31,19 @@ class DateRangeIterator implements Iterator
         $this->end_date_timestamp = $this->date_range->getEndDate()->format('Y-m-d');
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         $this->current_index = null;
         $this->current_date = null;
     }
 
-    public function next()
+    public function next(): void
     {
 //        $this->current_date = $this->getNextDate();
 //        $this->current_index++;
     }
 
-    public function valid()
+    public function valid(): bool
     {
         if ($this->current_date === null && $this->current_index === null) {
             return true;
@@ -56,12 +56,12 @@ class DateRangeIterator implements Iterator
         }
     }
 
-    public function key()
+    public function key(): mixed
     {
         return $this->current_index;
     }
 
-    public function current()
+    public function current(): mixed
     {
         $this->current_date = $this->getNextDate();
 
@@ -78,8 +78,8 @@ class DateRangeIterator implements Iterator
     {
         if ($this->current_date === null) {
             return clone $this->date_range->getStartDate();
-        } else {
-            return (clone $this->current_date)->addDay(1);
         }
+
+        return (clone $this->current_date)->addDay();
     }
 }

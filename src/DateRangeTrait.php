@@ -51,12 +51,12 @@ trait DateRangeTrait
         return $this->end_date_time;
     }
 
-    public function getIterator()
+    public function getIterator(): DateRangeIterator
     {
         return new DateRangeIterator($this);
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return [
             'type' => get_class($this),
