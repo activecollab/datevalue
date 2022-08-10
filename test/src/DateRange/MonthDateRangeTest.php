@@ -12,17 +12,18 @@ namespace ActiveCollab\DateValue\Test\DateRange;
 
 use ActiveCollab\DateValue\DateRange\MonthDateRange;
 use ActiveCollab\DateValue\Test\TestCase\TestCase;
+use LogicException;
 
 final class MonthDateRangeTest extends TestCase
 {
     /**
      * @dataProvider provideInvalidMonths
      * @param int $invalid_month
-     * @expectedException \LogicException
-     * @expectedExceptionMessage not a valid month
      */
     public function testInvalidMonth(int $invalid_month)
     {
+        $this->expectException(LogicException::class);
+        $this->expectExceptionMessage("not a valid month");
         new MonthDateRange(2017, $invalid_month);
     }
 
@@ -64,7 +65,7 @@ final class MonthDateRangeTest extends TestCase
 
         $value = json_decode(json_encode($date_range), true);
 
-        $this->assertInternalType('array', $value);
+        $this->assertIsArray($value);
         $this->assertCount(5, $value);
 
         $this->assertArrayHasKey('type', $value);

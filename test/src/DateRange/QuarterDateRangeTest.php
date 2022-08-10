@@ -12,17 +12,19 @@ namespace ActiveCollab\DateValue\Test\DateRange;
 
 use ActiveCollab\DateValue\DateRange\QuarterDateRange;
 use ActiveCollab\DateValue\Test\TestCase\TestCase;
+use LogicException;
 
 final class QuarterDateRangeTest extends TestCase
 {
     /**
      * @dataProvider provideInvalidQuarters
      * @param int $invalid_quarter
-     * @expectedException \LogicException
-     * @expectedExceptionMessage not a valid quarter
      */
     public function testInvalidQuarter(int $invalid_quarter)
     {
+        $this->expectException(LogicException::class);
+        $this->expectExceptionMessage("not a valid quarter");
+
         new QuarterDateRange(2017, $invalid_quarter);
     }
 
@@ -66,7 +68,7 @@ final class QuarterDateRangeTest extends TestCase
 
         $value = json_decode(json_encode($date_range), true);
 
-        $this->assertInternalType('array', $value);
+        $this->assertIsArray($value);
         $this->assertCount(5, $value);
 
         $this->assertArrayHasKey('type', $value);

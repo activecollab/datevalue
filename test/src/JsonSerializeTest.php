@@ -42,7 +42,7 @@ final class JsonSerializeTest extends TestCase
     {
         $decoded = json_decode(json_encode(new DateValue()), true);
 
-        $this->assertInternalType('integer', $decoded);
+        $this->assertIsInt($decoded);
         $this->assertNotEmpty($decoded);
 
         $start_of_reference_day = clone $this->reference;
@@ -55,7 +55,7 @@ final class JsonSerializeTest extends TestCase
     {
         $decoded = json_decode(json_encode(new DateTimeValue()), true);
 
-        $this->assertInternalType('integer', $decoded);
+        $this->assertIsInt($decoded);
         $this->assertNotEmpty($decoded);
 
         $this->assertEquals($this->reference->getTimestamp(), json_decode(json_encode(new DateTimeValue()), true));

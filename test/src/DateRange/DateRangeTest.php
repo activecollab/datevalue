@@ -14,15 +14,15 @@ use ActiveCollab\DateValue\DateRange;
 use ActiveCollab\DateValue\DateValue;
 use ActiveCollab\DateValue\DateValueInterface;
 use ActiveCollab\DateValue\Test\TestCase\TestCase;
+use LogicException;
 
 final class DateRangeTest extends TestCase
 {
-    /**
-     * @expectedException \LogicException
-     * @expectedExceptionMessage End date can't be before start date.
-     */
     public function testEndDateCantBeBeforeStartDate()
     {
+        $this->expectException(LogicException::class);
+        $this->expectExceptionMessage("End date can't be before start date.");
+
         new DateRange(new DateValue('2017-01-01'), new DateValue('2016-12-31'));
     }
 

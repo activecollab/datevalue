@@ -29,7 +29,7 @@ final class YearDateRangeTest extends TestCase
 
         $value = json_decode(json_encode($date_range), true);
 
-        $this->assertInternalType('array', $value);
+        $this->assertIsArray($value);
         $this->assertCount(4, $value);
 
         $this->assertArrayHasKey('type', $value);
