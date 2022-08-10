@@ -36,7 +36,7 @@ class DateTimeValue extends Carbon implements DateTimeValueInterface
         parent::__construct($create_from, $tz);
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): int
     {
         return $this->getTimestamp();
     }
