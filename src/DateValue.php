@@ -38,7 +38,7 @@ class DateValue extends Carbon implements DateValueInterface
         $this->startOfDay();
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): int
     {
         return $this->getTimestamp();
     }
